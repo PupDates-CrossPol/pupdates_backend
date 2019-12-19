@@ -1,5 +1,4 @@
 language: ruby
 os: osx
-# rvm:
-#  - 2.2
-#  - jruby
+rvm:
+ - 2.4.1
