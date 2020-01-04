@@ -1,4 +1,7 @@
 language: ruby
-os: osx
 rvm:
  - 2.4.1
+services:
+- postgresql
+before_script:
+- psql -c 'create database backend_pupdates_test;' -U postgres
