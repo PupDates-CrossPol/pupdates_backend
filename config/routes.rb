@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/login', to: 'sessions#new', as: 'login'
-      post '/login/:email', to: 'sessions#create'
+      post '/login', to: 'sessions#create'
       resources :users, only: [:index, :show] do
         get "/dogs", to: 'users/dogs#index'
       end
