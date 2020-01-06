@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Users API" do
+describe "Dogs API" do
   before :each do
     @user1 = User.create!(id: 1, first_name: 'Matt', last_name: 'Malone', email: 'mattmalone@email.com', description: 'a guy who likes dogs', image: 'https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     @user2 = User.create!(id: 2, first_name: 'Sam', last_name: 'Coleman', email: 'samcoleman@email.com', description: 'a guy who from TN likes dogs a lot', image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
@@ -18,37 +18,14 @@ describe "Users API" do
     @dog9 = Dog.create!(id: 9, user_id: 4, name: 'Tallulah', sex: 'female', breed: 'mutt', size: 'medium', age: 6, fixed: true, vaccinated: true, good_with_kids: false)
   end
 
-  it "gets all users" do
+  it "gets all dogs" do
 
-    get '/api/v1/users'
-
-    expect(response).to be_successful
-
-    users = JSON.parse(response.body)
-
-    expect(users['data'].count).to eq(4)
-  end
-
-  it "gets a single user" do
-
-    get "/api/v1/users/#{@user1.id}"
+    get '/api/v1/dogs'
 
     expect(response).to be_successful
 
-    user = JSON.parse(response.body)
+    dogs = JSON.parse(response.body)
 
-    expect(user['data']['attributes']['id']).to eq(1)
-  end
-
-  it "gets all dogs for a single user" do
-
-    get "/api/v1/users/#{@user4.id}/dogs"
-
-    expect(response).to be_successful
-
-    users_dogs = JSON.parse(response.body)
-
-    expect(users_dogs['data'].first['attributes']['name']).to eq('Oliver')
-    expect(users_dogs['data'].last['attributes']['name']).to eq('Tallulah')
+    expect(dogs['data'].count).to eq(9)
   end
 end
