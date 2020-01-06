@@ -7,11 +7,7 @@ describe "Logining into the API" do
     @user3 = User.create!(id: 3, first_name: 'Andrew', last_name: 'Johnson', email: 'andrewjohnson@email.com', password: 'password', description: 'a guy from SD who likes dogs', image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     @user4 = User.create!(id: 4, first_name: 'Sara', last_name: 'Karsh', email: 'sarakarsh@email.com', password: 'password', description: 'a girl who likes her dog too much', image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
 
-    # post "/api/v1/login?email=#{@user2.email}&password=#{@user2.password}"
-
-    post "/api/v1/login", :params => { email: "samcoleman@email.com", password: "password" }
-
-    request = { email: "samcoleman@email.com", password: "password" }
+    post "/api/v1/login?email=#{@user2.email}&password=#{@user2.password}"
 
     expect(response).to be_successful
 
