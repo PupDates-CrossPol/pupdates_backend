@@ -8,10 +8,9 @@ class Api::V1::SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: "#{params[:email]}.#{params[:format]}")
-    if user
-      session[:user_id] = user.id
+    if @user
+      session[:user_id] = @user.id
       current_user
-      get login_path
     else
       render json: "Invalid Email"
     end
