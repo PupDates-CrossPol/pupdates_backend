@@ -6,6 +6,7 @@ describe "Users API" do
     @user2 = User.create!(id: 2, first_name: 'Sam', last_name: 'Coleman', email: 'samcoleman@email.com', password: 'password', description: 'a guy who from TN likes dogs a lot', image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     @user3 = User.create!(id: 3, first_name: 'Andrew', last_name: 'Johnson', email: 'andrewjohnson@email.com', password: 'password', description: 'a guy from SD who likes dogs', image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     @user4 = User.create!(id: 4, first_name: 'Sara', last_name: 'Karsh', email: 'sarakarsh@email.com', password: 'password', description: 'a girl who likes her dog too much', image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+
     @dog1 = Dog.create!(id: 1, user_id: 1, name: 'Fido', sex: 'male', breed: 'golden retriever', size: 'large', age: 4, fixed: true, vaccinated: true, good_with_kids: true)
     @dog2 = Dog.create!(id: 2, user_id: 2, name: 'Hank', sex: 'male', breed: 'border collie', size: 'medium', age: 1, fixed: false, vaccinated: false, good_with_kids: true)
     @dog3 = Dog.create!(id: 3, user_id: 2, name: 'Goofy', sex: 'male', breed: 'doberman', size: 'large', age: 5, fixed: true, vaccinated: true, good_with_kids: false)
@@ -49,5 +50,30 @@ describe "Users API" do
 
     expect(users_dogs['data'].first['attributes']['name']).to eq('Oliver')
     expect(users_dogs['data'].last['attributes']['name']).to eq('Tallulah')
+  end
+
+  it "A user can add a dog" do
+    post "/api/v1/users/#{@user4.id}/dogs?name=Zoe&sex=female&breed=mutt&size=medium&age=4&fixed=true&vaccinated=true&good_with_kids=true"
+
+    expect(response).to be_successful
+
+    new_dog = JSON.parse(response.body)
+
+    expect(new_dog['data'].last['attributes']['name']).to eq('Zoe')
+  end
+
+  it "A user can update their image" do
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+
+    patch "/api/v1/users/2?image=https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+
+    expect(response).to be_successful
+
+    get "/api/v1/users/#{@user2.id}"
+
+    updated_image = JSON.parse(response.body)
+
+    expect(updated_image['data']['attributes']['image']).to eq('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
   end
 end
