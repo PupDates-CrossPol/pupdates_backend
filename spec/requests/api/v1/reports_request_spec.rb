@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Dogs API" do
+describe "Reports API" do
   before :each do
     @user1 = User.create!(first_name: 'Matt', last_name: 'Malone', email: 'mattmalone@email.com', password: 'password', description: 'a guy who likes dogs', image: 'https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     @user2 = User.create!(first_name: 'Sam', last_name: 'Coleman', email: 'samcoleman@email.com', password: 'password', description: 'a guy who from TN likes dogs a lot', image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
@@ -16,16 +16,30 @@ describe "Dogs API" do
     @dog7 = Dog.create!(user_id: @user3.id, name: 'Larry', sex: 'male', breed: 'german shepherd', size: 'large', age: 5, fixed: true, vaccinated: true, good_with_kids: true)
     @dog8 = Dog.create!(user_id: @user4.id, name: 'Oliver', sex: 'male', breed: 'chocolate lab', size: 'large', age: 1, fixed: true, vaccinated: true, good_with_kids: true)
     @dog9 = Dog.create!(user_id: @user4.id, name: 'Tallulah', sex: 'female', breed: 'mutt', size: 'medium', age: 6, fixed: true, vaccinated: true, good_with_kids: false)
+
+    @report1 = Report.create!(user_id: @user4.id, description: 'does not have a dog')
+    @report2 = Report.create!(user_id: @user2.id, description: 'dog is mean')
   end
 
-  it "gets all dogs" do
-
-    get '/api/v1/dogs'
+  it "Gets a list of all reports" do
+    get "/api/v1/reports"
 
     expect(response).to be_successful
 
-    dogs = JSON.parse(response.body)
+    all_reports = JSON.parse(response.body)
 
-    expect(dogs['data'].count).to eq(9)
+    expect(all_reports['data'].first['attributes']['description']).to eq("does not have a dog")
+  end
+
+  it "Creates a new report" do
+    post "/api/v1/reports?user_id=#{@user3.id}&description=No good doggos"
+
+    expect(response).to be_successful
+
+    get "/api/v1/reports"
+
+    all_reports = JSON.parse(response.body)
+
+    expect(all_reports['data'].last['attributes']['description']).to eq('No good doggos')
   end
 end
