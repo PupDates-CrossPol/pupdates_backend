@@ -5,12 +5,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/login', to: 'sessions#new', as: 'login'
       post '/login', to: 'sessions#create'
-      resources :users, only: [:index, :show] do
+      post '/reports', to: 'reports#create'
+      resources :users, only: [:index, :show, :update] do
         get "/dogs", to: 'users/dogs#index'
+        post "/dogs", to: 'users/dogs#create'
       end
       resources :dogs, only: :index do
       end
       resources :dog_images, only: [:index, :show] do
+      end
+      resources :reports, only: :index do
       end
     end
   end
