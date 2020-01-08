@@ -51,3 +51,5 @@ Match.create!(user_id: 1, match_id: 2, status: "like")
 Match.create!(user_id: 1, match_id: 3, status: "like")
 Match.create!(user_id: 1, match_id: 4, status: "dislike")
 Match.create!(user_id: 2, match_id: 1, status: "like")
+
+Room.create!(match_id: 1)
