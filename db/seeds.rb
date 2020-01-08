@@ -44,10 +44,6 @@ DogImage.create!(id: 13, dog_id: 7, image: 'https://vetstreet.brightspotcdn.com/
 DogImage.create!(id: 14, dog_id: 8, image: 'https://www.allthingsdogs.com/wp-content/uploads/2019/07/Chocolate-Lab-Names-Feature.jpg')
 DogImage.create!(id: 15, dog_id: 9, image: 'https://www.thesprucepets.com/thmb/6OX0VRYRfXclaryFZUeR-5j-7YA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Stocksy_txpf4e26be2n2x100_Medium_774343-5afafb60c064710036564027.jpg')
 
-Message.create!(id: 1, user_id: 1, content: 'Hello I like dogs')
-Message.create!(id: 2, user_id: 2, content: 'Yes dogs are great')
-Message.create!(id: 3, user_id: 1, content: 'Shall our dogs meet?')
-
 Report.create!(id: 1, user_id: 4, description: 'does not have a dog')
 Report.create!(id: 2, user_id: 2, description: 'dog is mean')
 
