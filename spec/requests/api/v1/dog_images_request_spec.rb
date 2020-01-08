@@ -46,13 +46,13 @@ describe "Dog Images API" do
   end
 
   it "gets a single dog image" do
-    get "/api/v1/dog_images/#{@dogimage9.id}"
+    get "/api/v1/dog_images/#{@dog1.id}"
 
     expect(response).to be_successful
 
-    dog_image = JSON.parse(response.body)
+    dog_images = JSON.parse(response.body)
 
-    expect(dog_image['data']['attributes']['id']).to eq(@dogimage9.id)
+    expect(dog_images['data'].first['attributes']['id']).to eq(@dogimage1.id)
   end
 
   it "creates a new dog image for a dog" do
