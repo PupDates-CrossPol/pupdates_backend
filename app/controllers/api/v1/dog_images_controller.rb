@@ -4,6 +4,6 @@ class Api::V1::DogImagesController < ApplicationController
   end
 
   def show
-    render json: DogImageSerializer.new(DogImage.find(params[:id]))
+    render json: DogImageSerializer.new(Dog.find_by(id: params[:id]).dog_images)
   end
 end
