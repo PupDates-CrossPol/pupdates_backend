@@ -50,3 +50,8 @@ Message.create!(id: 3, user_id: 1, content: 'Shall our dogs meet?')
 
 Report.create!(id: 1, user_id: 4, description: 'does not have a dog')
 Report.create!(id: 2, user_id: 2, description: 'dog is mean')
+
+Match.create!(user_id: 1, match_id: 2, status: "like")
+Match.create!(user_id: 1, match_id: 3, status: "like")
+Match.create!(user_id: 1, match_id: 4, status: "dislike")
+Match.create!(user_id: 2, match_id: 1, status: "like")
