@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if current_user
-      user.update(image: "#{params[:image]}&cs=#{params[:cs]}&dpr=#{params[:dpr]}&h=#{params[:h]}&w=#{params[:w]}")
+      user.update(image: "#{params[:image]}&token=#{params[:token]}")
     else
       render json: "Image cannot be updated"
     end
