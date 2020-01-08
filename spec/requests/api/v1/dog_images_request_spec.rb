@@ -54,4 +54,8 @@ describe "Dog Images API" do
 
     expect(dog_image['data']['attributes']['id']).to eq(@dogimage9.id)
   end
+
+  it "creates a new dog image for a dog" do
+    # post "/api/v1/dogs/#{@dog3.id}/dog_images&image="
+  end
 end
