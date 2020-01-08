@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :update] do
         get "/dogs", to: 'users/dogs#index'
         post "/dogs", to: 'users/dogs#create'
+        get "/matches", to: 'users/matches#index'
+        post "/matches", to: 'users/matches#create'
       end
       resources :dogs, only: :index do
       end
