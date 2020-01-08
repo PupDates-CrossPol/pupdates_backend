@@ -66,7 +66,7 @@ describe "Users API" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
 
-    patch "/api/v1/users/#{@user2.id}?image=https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    patch "/api/v1/users/#{@user2.id}?image=https://firebasestorage.googleapis.com/v0/b/pupdates-b3204.appspot.com/o/images%2Foc1qeaq1t?alt=media&token=e42c5645-1315-4cb7-831b-67c426ae3242"
 
     expect(response).to be_successful
 
@@ -74,6 +74,6 @@ describe "Users API" do
 
     updated_image = JSON.parse(response.body)
 
-    expect(updated_image['data']['attributes']['image']).to eq('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+    expect(updated_image['data']['attributes']['image']).to eq('https://firebasestorage.googleapis.com/v0/b/pupdates-b3204.appspot.com/o/images/oc1qeaq1t?alt=media&token=e42c5645-1315-4cb7-831b-67c426ae3242')
   end
 end
