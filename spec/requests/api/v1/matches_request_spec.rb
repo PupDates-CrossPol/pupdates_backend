@@ -18,7 +18,9 @@ describe 'Matches API' do
 
     expect(response).to be_successful
 
-    expect(response.body).to eq("Success!")
+    match = JSON.parse(response.body)
+
+    # expect(match['data']['attributes']['id']).to eq(match660)
 
     get "/api/v1/users/#{@user1.id}/matches"
 

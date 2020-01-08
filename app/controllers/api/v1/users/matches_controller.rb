@@ -8,7 +8,7 @@ class Api::V1::Users::MatchesController < ApplicationController
   def create
     match = Match.new(match_params)
     if match.save
-      render json: MatchSerializer.new(Match.find(params[:id]))
+      render json: MatchSerializer.new(Match.find_by(match_id: params[:match_id]))
     else
       render json: "Match cannot be saved"
     end
