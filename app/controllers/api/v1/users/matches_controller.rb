@@ -1,4 +1,6 @@
 class Api::V1::Users::MatchesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     render json: UserSerializer.new(User.find_by(id: params[:user_id]).user_matches)
   end
