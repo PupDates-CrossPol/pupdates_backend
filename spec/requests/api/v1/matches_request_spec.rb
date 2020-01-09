@@ -20,7 +20,7 @@ describe 'Matches API' do
 
     match = JSON.parse(response.body)
 
-    # expect(match['data']['attributes']['id']).to eq(match660)
+    expect(match['data']['attributes']['user_id']).to eq(@user1.id)
 
     get "/api/v1/users/#{@user1.id}/matches"
 
