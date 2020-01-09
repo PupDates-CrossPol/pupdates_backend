@@ -28,21 +28,21 @@
 ![DBSchema](/bin/backend_pupdates_schema.png?raw=true "pupdates_schema")
 
 ## Endpoints
-- Each request will need https://backend-pupdates.herokuapp.com/ to start
+### Each request will need https://backend-pupdates.herokuapp.com/ to start
 
-- GET `/api/v1/users`
+### GET `/api/v1/users`
 
 Example of a successful response:
 
 `{"data":[{"id":"1","type":"user","attributes":{"id":1,"first_name":"Matt","last_name":"Malone","email":"mattmalone@email.com","description":"a guy who likes dogs","image":"https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"2","type":"user","attributes":{"id":2,"first_name":"Sam","last_name":"Coleman","email":"samcoleman@email.com","description":"a guy who from TN likes dogs a lot","image":"https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"3","type":"user","attributes":{"id":3,"first_name":"Andrew","last_name":"Johnson","email":"andrewjohnson@email.com","description":"a guy from SD who likes dogs","image":"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"4","type":"user","attributes":{"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}}]}`
 
-- GET `/api/v1/users/:id`
+### GET `/api/v1/users/:id`
 
 Example of a successful response:
 
 `{"data":{"id":"4","type":"user","attributes":{"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}}}`
 
-- GET `/api/v1/dogs`
+### GET `/api/v1/dogs`
 
 Example of a successful response:
 
