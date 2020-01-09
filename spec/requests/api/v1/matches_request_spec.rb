@@ -19,14 +19,13 @@ describe 'Matches API' do
     expect(response).to be_successful
 
     match = JSON.parse(response.body)
-    
+
     expect(match['data']['attributes']['match_id']).to eq(@user1.id)
 
     get "/api/v1/users/#{@user1.id}/matches"
 
     matches = JSON.parse(response.body)
-
-
+    
     expect(matches['data'].count).to eq(1)
   end
 end
