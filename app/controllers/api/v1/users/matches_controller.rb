@@ -6,11 +6,11 @@ class Api::V1::Users::MatchesController < ApplicationController
   end
 
   def create
-    match = Match.new(match_params)
+    match = Match.find_or_create_by(match_params)
     if match.save
-      render json: MatchSerializer.new(Match.find_by(user_id: current_user.id))
+      render json: MatchSerializer.new(Match.find_by(user_id: params[:user_id]))
     else
-      render json: "Match cannot be saved"
+      render json: "Match cannot be saved or may exist"
     end
   end
 
