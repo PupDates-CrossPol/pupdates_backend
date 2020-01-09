@@ -47,10 +47,3 @@ DogImage.create!(id: 15, dog_id: 9, image: 'https://www.thesprucepets.com/thmb/6
 
 Report.create!(id: 1, user_id: 4, description: 'does not have a dog')
 Report.create!(id: 2, user_id: 2, description: 'dog is mean')
-
-Match.create!(id: 1, user_id: 1, match_id: 2, status: "like")
-Match.create!(id: 2, user_id: 1, match_id: 3, status: "like")
-Match.create!(id: 3, user_id: 1, match_id: 4, status: "dislike")
-Match.create!(id: 4, user_id: 2, match_id: 1, status: "like")
-
-Room.create!(match_id: 1)
