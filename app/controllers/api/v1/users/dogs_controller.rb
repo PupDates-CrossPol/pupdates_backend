@@ -4,7 +4,7 @@ class Api::V1::Users::DogsController < ApplicationController
   end
 
   def create
-    dog = Dog.new(dog_params)
+    dog = Dog.find_or_create_by(dog_params)
     if dog.save
       render json: DogSerializer.new(User.find(params[:user_id]).dogs)
     else
