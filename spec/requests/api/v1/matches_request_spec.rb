@@ -25,7 +25,7 @@ describe 'Matches API' do
     get "/api/v1/users/#{@user1.id}/matches"
 
     matches = JSON.parse(response.body)
-    
+
     expect(matches['data'].count).to eq(1)
   end
 end
