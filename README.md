@@ -35,7 +35,17 @@
 Example of a successful response:
 
 ```javascript
- {"data":[{"id":"1","type":"user","attributes":{"id":1,"first_name":"Matt","last_name":"Malone","email":"mattmalone@email.com","description":"a guy who likes dogs","image":"https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"2","type":"user","attributes":{"id":2,"first_name":"Sam","last_name":"Coleman","email":"samcoleman@email.com","description":"a guy who from TN likes dogs a lot","image":"https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"3","type":"user","attributes":{"id":3,"first_name":"Andrew","last_name":"Johnson","email":"andrewjohnson@email.com","description":"a guy from SD who likes dogs","image":"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},{"id":"4","type":"user","attributes":{"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}}]}
+ {"data":[      
+   {"id":"1","type":"user","attributes":
+    {"id":1,"first_name":"Matt","last_name":"Malone","email":"mattmalone@email.com","description":"a guy who likes dogs","image":"https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},
+  {"id":"2","type":"user","attributes":
+    {"id":2,"first_name":"Sam","last_name":"Coleman","email":"samcoleman@email.com","description":"a guy who from TN likes dogs a lot","image":"https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},
+  {"id":"3","type":"user","attributes":
+    {"id":3,"first_name":"Andrew","last_name":"Johnson","email":"andrewjohnson@email.com","description":"a guy from SD who likes dogs","image":"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}},
+  {"id":"4","type":"user","attributes":
+    {"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}}
+  ]
+}
 ```
 
 ### GET `/api/v1/users/:id`
@@ -43,7 +53,11 @@ Example of a successful response:
 Example of a successful response:
 
 ```javascript
- {"data":{"id":"4","type":"user","attributes":{"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}}}
+ {"data":
+  {"id":"4","type":"user","attributes":
+    {"id":4,"first_name":"Sara","last_name":"Karsh","email":"sarakarsh@email.com","description":"a girl who likes her dog too much","image":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=750\u0026w=1260"}
+  }
+}
 ```
 
 ### GET `/api/v1/dogs`
@@ -51,7 +65,19 @@ Example of a successful response:
 Example of a successful response:
 
 ```javascript
-{"data":[{"id":"1","type":"dog","attributes":{"id":1,"name":"Fido","sex":"male","breed":"golden retriever","size":"large","age":4,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":1}},{"id":"2","type":"dog","attributes":{"id":2,"name":"Hank","sex":"male","breed":"border collie","size":"medium","age":1,"fixed":false,"vaccinated":false,"good_with_kids":true,"description":null,"user_id":2}},{"id":"3","type":"dog","attributes":{"id":3,"name":"Goofy","sex":"male","breed":"doberman","size":"large","age":5,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":2}},{"id":"4","type":"dog","attributes":{"id":4,"name":"Molly","sex":"female","breed":"golden retriever","size":"large","age":2,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":3}},{"id":"5","type":"dog","attributes":{"id":5,"name":"Sparkles","sex":"female","breed":"papillon","size":"small","age":8,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":3}},{"id":"6","type":"dog","attributes":{"id":6,"name":"Fluffy","sex":"female","breed":"chihuahua","size":"very small","age":12,"fixed":false,"vaccinated":false,"good_with_kids":false,"description":null,"user_id":3}},{"id":"7","type":"dog","attributes":{"id":7,"name":"Larry","sex":"male","breed":"german shepherd","size":"large","age":5,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":3}},{"id":"8","type":"dog","attributes":{"id":8,"name":"Oliver","sex":"male","breed":"chocolate lab","size":"large","age":1,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":4}},{"id":"9","type":"dog","attributes":{"id":9,"name":"Tallulah","sex":"female","breed":"mutt","size":"medium","age":6,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":4}}]}
+{"data":[
+  {"id":"1","type":"dog","attributes":
+    {"id":1,"name":"Fido","sex":"male","breed":"golden retriever","size":"large","age":4,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":1}},
+    {"id":"2","type":"dog","attributes":{"id":2,"name":"Hank","sex":"male","breed":"border collie","size":"medium","age":1,"fixed":false,"vaccinated":false,"good_with_kids":true,"description":null,"user_id":2}},
+    {"id":"3","type":"dog","attributes":{"id":3,"name":"Goofy","sex":"male","breed":"doberman","size":"large","age":5,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":2}},
+    {"id":"4","type":"dog","attributes":{"id":4,"name":"Molly","sex":"female","breed":"golden retriever","size":"large","age":2,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":3}},
+    {"id":"5","type":"dog","attributes":{"id":5,"name":"Sparkles","sex":"female","breed":"papillon","size":"small","age":8,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":3}},
+    {"id":"6","type":"dog","attributes":{"id":6,"name":"Fluffy","sex":"female","breed":"chihuahua","size":"very small","age":12,"fixed":false,"vaccinated":false,"good_with_kids":false,"description":null,"user_id":3}},
+    {"id":"7","type":"dog","attributes":{"id":7,"name":"Larry","sex":"male","breed":"german shepherd","size":"large","age":5,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":3}},
+    {"id":"8","type":"dog","attributes":{"id":8,"name":"Oliver","sex":"male","breed":"chocolate lab","size":"large","age":1,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":4}},
+    {"id":"9","type":"dog","attributes":{"id":9,"name":"Tallulah","sex":"female","breed":"mutt","size":"medium","age":6,"fixed":true,"vaccinated":true,"good_with_kids":false,"description":null,"user_id":4}}
+  ]
+}
 ```
 
 ### GET `/api/v1/dogs/:id`
@@ -59,7 +85,11 @@ Example of a successful response:
 Example of a successful response:
 
 ```javascript
-{"data":[{"id":"1","type":"dog","attributes":{"id":1,"name":"Fido","sex":"male","breed":"golden retriever","size":"large","age":4,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":1}}]}
+{"data":[
+  {"id":"1","type":"dog","attributes":
+    {"id":1,"name":"Fido","sex":"male","breed":"golden retriever","size":"large","age":4,"fixed":true,"vaccinated":true,"good_with_kids":true,"description":null,"user_id":1}}
+  ]
+}
 ```
 
 ### GET `/api/v1/dog_images`
